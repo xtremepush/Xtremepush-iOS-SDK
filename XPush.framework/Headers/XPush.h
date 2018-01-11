@@ -125,7 +125,7 @@
 + (void)         application:(UIApplication *)application
   handleActionWithIdentifier:(NSString *)identifier
        forRemoteNotification:(NSDictionary *)userInfo
-           completionHandler:(void (^)())completionHandler;
+           completionHandler:(XPSimpleCompletionBlock)completionHandler;
 
 /**
  * Call this method in your AppDelegate's
@@ -134,7 +134,7 @@
 + (void)         application:(UIApplication *)application
   handleActionWithIdentifier:(NSString *)identifier
         forLocalNotification:(UILocalNotification *)localNotification
-           completionHandler:(void (^)())completionHandler;
+           completionHandler:(XPSimpleCompletionBlock)completionHandler;
 
 /**
  * Call this method in your custom UNNotificationCenterDelegate's
@@ -150,7 +150,7 @@
  */
 + (void)userNotificationCenter:(UNUserNotificationCenter *)center
 didReceiveNotificationResponse:(UNNotificationResponse *)response
-         withCompletionHandler:(void (^)())completionHandler;
+         withCompletionHandler:(XPSimpleCompletionBlock)completionHandler;
 
 
 

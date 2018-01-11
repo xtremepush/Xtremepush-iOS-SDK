@@ -27,7 +27,8 @@ extern NSString * _Nonnull const XPushMessageResponseReceiveNotification __attri
  */
 extern NSString * _Nonnull const XPushInboxBadgeChangeNotification;
 
-typedef void (^XPMessageCompletionBlock)();
+typedef void (^XPMessageCompletionBlock)(void);
+typedef void (^XPSimpleCompletionBlock)(void);
 
 /**
  * Callback you'll receive upon any interaction with PushNotification. If you want to leverage background processing with push notification consider using |XPContinousMessageInteractionCallback|

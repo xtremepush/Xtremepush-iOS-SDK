@@ -20,6 +20,6 @@
 @property (nonatomic, readonly, nullable) NSString *deeplink;
 @property (nonatomic, readwrite, nullable) NSString* inapp;
 
-- (NSDictionary *) dictionaryRepresentation;
+- (NSDictionary  * _Nonnull ) dictionaryRepresentation;
 
 @end
