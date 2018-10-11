@@ -142,7 +142,7 @@
  */
 + (void)userNotificationCenter:(UNUserNotificationCenter *)center
        willPresentNotification:(UNNotification *)notification
-         withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler;
+         withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler API_AVAILABLE(ios(10.0));
 
 /**
  * Call this method in your custom UNNotificationCenterDelegate's
@@ -150,7 +150,7 @@
  */
 + (void)userNotificationCenter:(UNUserNotificationCenter *)center
 didReceiveNotificationResponse:(UNNotificationResponse *)response
-         withCompletionHandler:(XPSimpleCompletionBlock)completionHandler;
+         withCompletionHandler:(XPSimpleCompletionBlock)completionHandler API_AVAILABLE(ios(10.0));
 
 
 
@@ -375,6 +375,18 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 + (void)setServerExpectedCertificates:(NSArray *)certDataStringArray preferedIndex:(NSNumber*)index;
 + (void)setServerExpectedCertificateFromFile:(NSString *)filePath preferedIndex:(NSNumber*)index;
 + (void)setServerExpectedCertificateFromFiles:(NSArray *)filePathArray preferedIndex:(NSNumber*)index;
+
+/**
+ *  Notification service extension
+ */
+
+NS_ASSUME_NONNULL_BEGIN;
+
++ (NSString* _Nullable) didReceiveNotificationRequest:(UNNotificationRequest * )request
+                                   withContentHandler:(void (^)(UNNotificationContent *))contentHandler;
++ (void) serviceExtensionTimeWillExpireWith:(NSString* _Nullable ) token;
+
+NS_ASSUME_NONNULL_END;
 
 @end
 
