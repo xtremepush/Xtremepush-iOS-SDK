@@ -26,8 +26,12 @@
 
 @property (nonatomic, readonly, nullable) NSString* title;
 @property (nonatomic, readonly, nullable) NSString* text;
+@property (nonatomic, readonly, nullable) NSString* icon;
 
 ///raw representation of the message for custom message processing
 @property (nonatomic, readonly, nonnull) NSDictionary *payload;
+
+///message metadata if any
+@property (nonatomic, readonly, nullable) NSDictionary* metadata;
 
 @end

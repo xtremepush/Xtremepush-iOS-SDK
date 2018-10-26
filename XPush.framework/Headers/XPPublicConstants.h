@@ -11,16 +11,12 @@
 
 @class XPMessageResponse;
 @class XPMessage;
+@class XPInboxItem;
 
 /**
  *	Notification name, which will be sent when device registered in the server.
  */
 extern NSString * _Nonnull const XPushDeviceRegistrationNotification;
-
-/**
- *	Notification name, which will be sent when message response received
- */
-extern NSString * _Nonnull const XPushMessageResponseReceiveNotification __attribute__((deprecated("Consider switching to block based notification that are safer to use. ")));
 
 /**
  *	Notification name, which will be sent when inbox badge has changed
@@ -30,10 +26,18 @@ extern NSString * _Nonnull const XPushInboxBadgeChangeNotification;
 typedef void (^XPMessageCompletionBlock)(void);
 typedef void (^XPSimpleCompletionBlock)(void);
 
+typedef void(^XPMessageCallback)(XPMessageResponse* _Nonnull x);
+
 /**
  * Callback you'll receive upon any interaction with PushNotification. If you want to leverage background processing with push notification consider using |XPContinousMessageInteractionCallback|
  */
-typedef void(^XPMessageInteractionCallback)(XPMessageResponse* _Nonnull x);
+typedef XPMessageCallback XPMessageInteractionCallback;
+
+/**
+ * Callback you'll receive upon user clicking "Manage settings" in notification center.
+ * Assosiated message will provide context for which user decided to manage notification settings
+ */
+typedef XPMessageCallback XPNotificationSettingCallback;
 
 /**
  * Callback you'll receive upon any interaction with PushNotification that requires background processing.
@@ -45,6 +49,11 @@ typedef void(^XPContinousMessageInteractionCallback)(XPMessageResponse* _Nonnull
  *  Callback you'll receive upon deeplink interaction happens
  */
 typedef void(^XPDeeplinkCallback)(NSString* _Nonnull x);
+
+/**
+ *  Callback you'll receive upon fetching inbox list
+ */
+typedef void(^XPInboxListCallback)(NSArray<XPInboxItem *> * _Nonnull x);
 
 /**
  *

@@ -8,8 +8,8 @@
 #import <UserNotifications/UserNotifications.h>
 
 #import "XPPublicConstants.h"
-#import "XPMessageResponseNotification.h"
 #import "XPMessageResponse.h"
+#import "XPInboxItem.h"
 
 @interface XPush : NSObject
 
@@ -19,7 +19,6 @@
  * Make sure to configure SDK options before calling it
  */
 + (void)applicationDidFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
-
 
 
 /** SDK CONFIGURATION **/
@@ -152,14 +151,32 @@
 didReceiveNotificationResponse:(UNNotificationResponse *)response
          withCompletionHandler:(XPSimpleCompletionBlock)completionHandler API_AVAILABLE(ios(10.0));
 
-
+/**
+ * Call this method in your custom UNNotificationCenterDelegate's
+ * [userNotificationCenter:openSettingsForNotification:]
+ */
++ (void)userNotificationCenter:(UNUserNotificationCenter *)center
+   openSettingsForNotification:(UNNotification *)notification API_AVAILABLE(ios(12.0));
 
 /** PUSH MESSAGING */
 
 /**
- * Register current application and this lib to receive notifications
+ * Register current application and this lib to receive notifications.
+ * Starting from iOS 12, XPush automatically provides you with new Apple's
+ * provisional authorization experience.
+ * If you used to prompt user with notification permission dialog at Application start,
+ * you don't need to do anything to take advantage of provisional authorization.
+ * If you have tailored user experience with notification promp showing at particular moment,
+ * you might want to use method with `provisionalAuthorization` param to turn off provisional authorization.
  */
 + (void)registerForRemoteNotificationTypes:(XPNotificationType)types;
+
+/**
+ * Register current application and this lib to receive notifications
+ * @param provisional - pass NO if you'd like to keep prompting user for notifications
+ */
++ (void)registerForRemoteNotificationTypes:(XPNotificationType)types
+                  provisionalAuthorization:(BOOL)provisional;
 
 /**
  * Unregister current application and this lib to receive notifications
@@ -200,6 +217,13 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
  * Register standard deeplinks handler
  */
 + (void)registerDeeplinkHandler: (XPDeeplinkCallback)callback;
+
+/**
+ * Register standard deeplinks handler
+ * Called when user hits "Manage notification" in notification center.
+ * You are given option to show user your custom Notification settings UI
+ */
++ (void)registerNotificationSettingsHandler: (XPNotificationSettingCallback)callback;
 
 /**
  * Progamatically process message click event after showing custom dialog
@@ -294,6 +318,11 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 + (void)setSubscription:(BOOL)subscription;
 
 /**
+ * Returns current subscription status
+ */
++ (BOOL)getSubscription;
+
+/**
  *	Returns version of the lib.
  */
 + (NSString *)version;
@@ -334,10 +363,14 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 /**
  *  Set a limit for a maximum number of stored tags, impressions and sessions
  */
-+ (void)setTagsStoreLimit:(NSUInteger *)limit;
-+ (void)setImpressionsStoreLimit:(NSUInteger *)limit;
-+ (void)setSessionsStoreLimit:(NSUInteger *)limit;
++ (void)setTagsStoreLimit:(NSUInteger )limit;
++ (void)setImpressionsStoreLimit:(NSUInteger )limit;
++ (void)setSessionsStoreLimit:(NSUInteger)limit;
 
+/**
+ *    Used to get a list of inbox messages for current device
+ */
++ (void)inboxListWithOffset:(NSUInteger)offset limit:(NSUInteger)limit callback:(XPInboxListCallback)callback;
 
 
 /** DEPRECATED PUSH MESSAGES ACCESS METHODS */
@@ -389,23 +422,6 @@ NS_ASSUME_NONNULL_BEGIN;
 NS_ASSUME_NONNULL_END;
 
 @end
-
-
-/** DEPRECATED PUSH MESSAGE MODEL **/
-
-@interface XPPushModel : NSObject
-@property (nonatomic, readonly) NSDate      *createDate;
-@property (nonatomic, readonly) NSString    *pushId;
-@property (nonatomic, readonly) NSString    *locationId;
-@property (nonatomic, readonly) NSString    *alert;
-@property (nonatomic, readonly) NSInteger   badge;
-@property (nonatomic, readonly) NSString    *messageId;
-@property (nonatomic, readonly) NSString    *url;
-@property (nonatomic, readonly) BOOL        shouldOpenInApp;
-@property (nonatomic, readonly) BOOL        isRead;
-@property (nonatomic, readonly) NSDictionary *customPayload;
-@end
-
 
 /** INBOX BUTTON **/
 
