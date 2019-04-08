@@ -265,6 +265,13 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 + (void)openInbox;
 
 /**
+ * Force presents inbox regardless of currently presented ViewController
+ * We discourage you from using this method. It could lead to unexpected presentation issues with your already presented viewController
+ * We recommend using openInbox and make sure that there isn't any viewControllers presented at the moment
+ */
++ (void)forceOpenInbox;
+
+/**
  * Get current inbox badge
  */
 + (NSInteger)getInboxBadge;
@@ -303,7 +310,12 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
  */
 + (void)hitImpression:(NSString *)impression;
 
-
+/**
+ * Force presents inapp message regardless of currently presented ViewController
+ * We discourage you from using this method. It could lead to unexpected presentation issues with your already presented viewController
+ * We recommend making sure that there isn't any viewControllers presented at the moment
+ */
++ (void) forcePresentInappMessage: (BOOL) shouldForcePresent;
 
 /** DEVICE INFORMATION **/
 
