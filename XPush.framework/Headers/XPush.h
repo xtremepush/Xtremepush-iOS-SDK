@@ -384,6 +384,10 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
  */
 + (void)inboxListWithOffset:(NSUInteger)offset limit:(NSUInteger)limit callback:(XPInboxListCallback)callback;
 
+/**
+ *    Used to remove a message from inbox by it's id
+ */
++ (void)removeInboxMessage:(XPInboxItem*)message callback:(XPSimpleCompletionBlock)callback;
 
 /** DEPRECATED PUSH MESSAGES ACCESS METHODS */
 
