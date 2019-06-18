@@ -387,7 +387,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 /**
  *    Used to remove a message from inbox by it's id
  */
-+ (void)removeInboxMessage:(XPInboxItem*)message callback:(XPSimpleCompletionBlock)callback;
++ (void)removeInboxMessage:(XPInboxItem*)message callback:(XPInboxBadgeCallback)callback;
 
 /** DEPRECATED PUSH MESSAGES ACCESS METHODS */
 

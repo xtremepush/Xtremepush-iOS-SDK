@@ -56,6 +56,11 @@ typedef void(^XPDeeplinkCallback)(NSString* _Nonnull x);
 typedef void(^XPInboxListCallback)(NSArray<XPInboxItem *> * _Nullable list, NSError* _Nullable error);
 
 /**
+ *  Callback you'll receive upon change in inbox badge
+ */
+typedef void(^XPInboxBadgeCallback)(NSInteger badge);
+
+/**
  *
  */
 typedef NS_ENUM(NSInteger, XPActionType) {
