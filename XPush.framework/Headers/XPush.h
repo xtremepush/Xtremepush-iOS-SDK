@@ -435,6 +435,20 @@ NS_ASSUME_NONNULL_BEGIN;
                                    withContentHandler:(void (^)(UNNotificationContent *))contentHandler;
 + (void) serviceExtensionTimeWillExpireWith:(NSString* _Nullable ) token;
 
+/**
+ *  Notification preferences
+ */
+
++ (void)updateUserWith:(NSDictionary*) preferences completionHandler:(XPChannelPreferencesCallback) callback;
+
++ (void)updatePushSubscription :(BOOL) subscriptionStatus completionHandler:(XPChannelPreferencesCallback) callback;
++ (void)updateEmailSubscription:(BOOL) subscriptionStatus completionHandler:(XPChannelPreferencesCallback) callback;
++ (void)updateSmsSubscription  :(BOOL) subscriptionStatus completionHandler:(XPChannelPreferencesCallback) callback;
+
++ (void)updatePushSubscriptionPreferences :(NSDictionary*) preferences completionHandler:(XPChannelPreferencesCallback) callback;
++ (void)updateEmailSubscriptionPreferences:(NSDictionary*) preferences completionHandler:(XPChannelPreferencesCallback) callback;
++ (void)updateSmsSubscriptionPreferences  :(NSDictionary*) preferences completionHandler:(XPChannelPreferencesCallback) callback;
+
 NS_ASSUME_NONNULL_END;
 
 @end

@@ -61,6 +61,12 @@ typedef void(^XPInboxListCallback)(NSArray<XPInboxItem *> * _Nullable list, NSEr
 typedef void(^XPInboxBadgeCallback)(NSInteger badge);
 
 /**
+ *  Callback you'll receive upon fetching inbox list
+ */
+typedef void(^XPChannelPreferencesCallback)(NSDictionary* _Nullable jsonResponse, NSError* _Nullable error);
+
+
+/**
  *
  */
 typedef NS_ENUM(NSInteger, XPActionType) {
