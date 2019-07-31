@@ -449,6 +449,9 @@ NS_ASSUME_NONNULL_BEGIN;
 + (void)updateEmailSubscriptionPreferences:(NSDictionary*) preferences completionHandler:(XPChannelPreferencesCallback) callback;
 + (void)updateSmsSubscriptionPreferences  :(NSDictionary*) preferences completionHandler:(XPChannelPreferencesCallback) callback;
 
++ (void)importUser:(NSDictionary*) preferences
+ completionHandler:(XPChannelPreferencesCallback) callback;
+
 NS_ASSUME_NONNULL_END;
 
 @end
