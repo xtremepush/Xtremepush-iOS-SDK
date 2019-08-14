@@ -63,9 +63,14 @@
 /** LOCATIONS CONFIGURATION **/
 
 /**
- * Turn on to enable geofence and ibeacon monitoring in the app
+ * Turn on to enable geofence monitoring in the app
  */
 + (void)setLocationEnabled:(BOOL)locationEnabled;
+
+/**
+ * Turn on to enable ibeacon monitoring in the app
+ */
++ (void)setBeaconsEnabled:(BOOL)beaconsEnabled;
 
 /**
  * Turn off to prevent SDK to request location persmissions automatically
