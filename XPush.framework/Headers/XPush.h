@@ -354,7 +354,6 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 + (NSDictionary *)deviceInfo;
 
 
-
 /** INAPP BEHAVIOR RELEASING CONFIGURATION **/
 
 /**
