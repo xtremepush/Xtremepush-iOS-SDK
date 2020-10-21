@@ -36,8 +36,9 @@ typedef XPMessageCallback XPMessageInteractionCallback;
 /**
  * Callback you'll receive upon user clicking "Manage settings" in notification center.
  * Assosiated message will provide context for which user decided to manage notification settings
+ *  @param message - push notification, from which user decided to open notification settings. Is nil if user opens from iOS Settings
  */
-typedef XPMessageCallback XPNotificationSettingCallback;
+typedef void(^XPNotificationSettingCallback)(XPMessage* _Nullable message);
 
 /**
  * Callback you'll receive upon any interaction with PushNotification that requires background processing.
@@ -64,7 +65,6 @@ typedef void(^XPInboxBadgeCallback)(NSInteger badge);
  *  Callback you'll receive upon fetching inbox list
  */
 typedef void(^XPChannelPreferencesCallback)(NSDictionary* _Nullable jsonResponse, NSError* _Nullable error);
-
 
 /**
  *

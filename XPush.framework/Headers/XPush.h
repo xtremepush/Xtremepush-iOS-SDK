@@ -58,7 +58,10 @@
  */
 + (void)setInAppMessageEnabled:(BOOL)enabled;
 
-
+/**
+* Turn on to make XPush not register for push notification and request permissions from user
+*/
++ (void)enableManualPushRegistration: (BOOL) enabled;
 
 /** LOCATIONS CONFIGURATION **/
 
