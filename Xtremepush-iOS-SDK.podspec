@@ -9,4 +9,6 @@ Pod::Spec.new do |s|
     s.source = { :git => 'https://github.com/xtremepush/Xtremepush-iOS-SDK.git', :tag => '4.1.10' }
     s.ios.deployment_target    = '8.0'
     s.ios.vendored_framework   = 'XPush.framework'
+    s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+    s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 end
