@@ -105,6 +105,18 @@
 + (void) setDeliveryReceiptsEnabled:(BOOL) isEnabled
             customReportingEndpoint:(NSString*) endpoint;
 
+/*
+ * XPush will use encryption for push notifiction
+ * you must use Push service extension and AppGroups to use encrypted pushes
+ */
++ (void) enableEncryptedPush;
+
+/*
+ * @param appGroup -- name of the App Group you defined for your bundle identifier
+ * Required for using delivery receipts or encrypted push notifications
+ */
++ (void) enableAppGroups: (NSString*) appGroup;
+
 /** DELEGATE BRIDGES **/
 
 /**
