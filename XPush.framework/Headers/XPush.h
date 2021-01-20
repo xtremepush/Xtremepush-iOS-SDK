@@ -440,6 +440,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
  */
 + (void)markPushAsRead:(NSString *)actionId;
 
++ (void)setCordovaLaunchMode:(BOOL) enable;
 
 /**
  *  User setting
