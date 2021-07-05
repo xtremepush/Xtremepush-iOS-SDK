@@ -461,6 +461,12 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 + (void)setServerExpectedCertificateFromFiles:(NSArray *)filePathArray preferedIndex:(NSNumber*)index;
 
 /**
+ *  Provide custom RSA 2048 public key for SSL pinning
+ *  if proivided, overrides any SSL trust certificates that are specified
+ */
++ (void)setServerExpectedPublicKeyFromFile:(NSString *)filePath;
+
+/**
  *  Notification service extension
  */
 
