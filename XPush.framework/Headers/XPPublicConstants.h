@@ -67,6 +67,11 @@ typedef void(^XPInboxBadgeCallback)(NSInteger badge);
 typedef void(^XPChannelPreferencesCallback)(NSDictionary* _Nullable jsonResponse, NSError* _Nullable error);
 
 /**
+ *  Callback you'll receive upon native message
+ */
+typedef void(^XPNativeMessageCallback)(XPMessage* _Nonnull message);
+
+/**
  *
  */
 typedef NS_ENUM(NSInteger, XPActionType) {
