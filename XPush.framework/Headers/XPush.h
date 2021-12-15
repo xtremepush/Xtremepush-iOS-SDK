@@ -283,13 +283,17 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 
 /**
  * Report message being clicked after showing custom dialog
+ *  * @param - context. Key-Value pairs of Plist data that can be assigned along with thie message delivery
+ * pass nil for absent context
  */
-+ (void)reportMessageClicked:(XPMessage *)message;
++ (void)reportMessageClicked:(XPMessage *)message context:(NSDictionary*)context;
 
 /**
  * Report message being delivered after showing custom dialog
+ * @param - context. Key-Value pairs of Plist data that can be assigned along with thie message delivery
+ * pass nil for absent context
  */
-+ (void)reportMessageDelivered:(XPMessage *)message;
++ (void)reportMessageDelivered:(XPMessage *)message context:(NSDictionary*)context;
 
 /**
  * Report message being clicked with certain action identifier after showing custom dialog
