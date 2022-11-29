@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) BOOL isOpened;
 @property (nonatomic, readonly) BOOL isClicked;
+@property (nonatomic, readonly) BOOL isDelivered;
 
 @property (nonatomic, readonly) NSNumber* createTimestamp;
 @property (nonatomic, readonly, nullable) NSNumber* expirationTimestamp;
