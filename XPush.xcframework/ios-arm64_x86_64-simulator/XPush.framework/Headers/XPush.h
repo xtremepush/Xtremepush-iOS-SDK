@@ -109,7 +109,7 @@
  * Payload will contain message_id and campaign_id
  */
 + (void) setDeliveryReceiptsEnabled:(BOOL) isEnabled
-            customReportingEndpoint:(NSString*) endpoint;
+            customReportingEndpoint:(NSString*_Nullable) endpoint;
 
 /*
  * XPush will use encryption for push notifiction
@@ -121,7 +121,12 @@
  * @param appGroup -- name of the App Group you defined for your bundle identifier
  * Required for using delivery receipts or encrypted push notifications
  */
-+ (void) enableAppGroups: (NSString*) appGroup;
++ (void) enableAppGroups: (NSString*_Nonnull) appGroup;
+
+/*
+ * Required for authenticating user with a token
+ */
++ (void)authenticate:(NSString*_Nonnull)token;
 
 /** DELEGATE BRIDGES **/
 
