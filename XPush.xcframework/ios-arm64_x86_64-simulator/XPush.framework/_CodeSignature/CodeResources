@@ -40,6 +40,10 @@
 		<data>
 		7SLXNz3W7Pd7tRlHEpN/cCATfEk=
 		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		B4tA9GQA5LexGgnjrriMruUXmQ0=
+		</data>
 		<key>icon_safari.png</key>
 		<data>
 		L0oUQ4rAA+aGdAiyC2qz9QlBSbE=
@@ -105,6 +109,13 @@
 			<key>hash2</key>
 			<data>
 			IuAivjMyhjlLqpdRUIZgnFac1fNNE8My7rTyv0Z3Oco=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			LTcpF8zDNokHDX066l1I5vR73kC5sz5YitCokSVa8SU=
 			</data>
 		</dict>
 		<key>icon_safari.png</key>
