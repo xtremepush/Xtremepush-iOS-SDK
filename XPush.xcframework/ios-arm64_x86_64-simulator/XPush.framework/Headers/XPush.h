@@ -185,17 +185,17 @@
  * Call this method in your custom UNNotificationCenterDelegate's
  * [userNotificationCenter:willPresentNotification:withCompletionHandler:]
  */
-+ (void)userNotificationCenter:(UNUserNotificationCenter *)center
-       willPresentNotification:(UNNotification *)notification
-         withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler API_AVAILABLE(ios(10.0));
++ (void)userNotificationCenter:(UNUserNotificationCenter *_Nonnull)center
+       willPresentNotification:(UNNotification *_Nonnull)notification
+         withCompletionHandler:(void (^_Nonnull)(UNNotificationPresentationOptions))completionHandler API_AVAILABLE(ios(10.0));
 
 /**
  * Call this method in your custom UNNotificationCenterDelegate's
  * [userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:]
  */
-+ (void)userNotificationCenter:(UNUserNotificationCenter *)center
-didReceiveNotificationResponse:(UNNotificationResponse *)response
-         withCompletionHandler:(XPSimpleCompletionBlock)completionHandler API_AVAILABLE(ios(10.0));
++ (void)userNotificationCenter:(UNUserNotificationCenter *_Nonnull)center
+didReceiveNotificationResponse:(UNNotificationResponse *_Nonnull)response
+         withCompletionHandler:(XPSimpleCompletionBlock _Nullable )completionHandler API_AVAILABLE(ios(10.0));
 
 /**
  * Call this method in your custom UNNotificationCenterDelegate's
