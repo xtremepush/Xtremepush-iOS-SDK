@@ -534,6 +534,16 @@ NS_ASSUME_NONNULL_BEGIN;
 + (void)importUser:(NSDictionary*) preferences
  completionHandler:(XPChannelPreferencesCallback) callback;
 
+
+
+
+/**
+ *  sports feed
+ */
++ (void)followSportsFeed:(NSString *_Nonnull)sportFeedID withToken:(NSString *_Nonnull)token;
+
+
+
 NS_ASSUME_NONNULL_END;
 
 @end
@@ -541,11 +551,11 @@ NS_ASSUME_NONNULL_END;
 /** INBOX BUTTON **/
 
 @interface XPInboxButton : UIButton
-- (UILabel *)badge;
+- (UILabel *_Nonnull)badge;
 - (void)setBadgeSize:(NSInteger)badgeSize;
 - (void)setBadgePosition:(CGPoint)badgeSize;
-- (void)setBadgeColor:(UIColor *)color;
-- (void)setBadgeTextColor:(UIColor *)color;
+- (void)setBadgeColor:(UIColor *_Nonnull)color;
+- (void)setBadgeTextColor:(UIColor *_Nonnull)color;
 @end
 
 
