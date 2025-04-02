@@ -399,6 +399,13 @@ didReceiveNotificationResponse:(UNNotificationResponse *_Nonnull)response
  */
 + (void) forcePresentInappMessage: (BOOL) shouldForcePresent;
 
+
++ (void)startInappPoll;
+
+
++ (void)stopInappPoll;
+
+
 /** DEVICE INFORMATION **/
 
 /**
