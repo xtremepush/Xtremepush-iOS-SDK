@@ -8,7 +8,6 @@
 #import <UserNotifications/UserNotifications.h>
 
 #import <XPush/XPPublicConstants.h>
-#import <XPush/XPPublicConstants.h>
 #import <XPush/XPInboxItem.h>
 
 @interface XPush : NSObject
@@ -310,6 +309,9 @@ didReceiveNotificationResponse:(UNNotificationResponse *_Nonnull)response
  */
 + (void)reportMessageOpened:(XPMessage *)message context:(NSDictionary *)context;
 
++ (void)reportInboxMessageClicked:(NSString *_Nonnull)messageID actionIdentifier:(NSString*_Nonnull)actionIdentifier;
+
++ (void)reportInboxMessageOpened:(NSString *_Nonnull)messageID actionIdentifier:(NSString*_Nonnull)actionIdentifier;
 /**
  * Report message being delivered after showing custom dialog
  * @param context Key-Value pairs of Plist data that can be assigned along with thie message delivery
@@ -542,13 +544,23 @@ NS_ASSUME_NONNULL_BEGIN;
  completionHandler:(XPChannelPreferencesCallback) callback;
 
 
-
-
 /**
  *  sports feed
  */
 + (void)followSportsFeed:(NSString *_Nonnull)sportFeedID withToken:(NSString *_Nonnull)token;
 
+
+/**
+ *  live actuvities
+ */
++ (void)handleLiveActivityToken:(NSString *)token
+                           type:(NSString *)type
+                     activityId:(NSString *)activityId;
+
++ (void)handleLiveActivityUpdateToken:(NSString *)token
+                           activityId:(NSString *)activityId;
+
++ (void)endLiveActivitySubscription:(NSString *)activityID;
 
 
 NS_ASSUME_NONNULL_END;

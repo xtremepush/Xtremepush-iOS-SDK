@@ -1,17 +1,44 @@
-// swift-tools-version: 5.6
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
+// swift-tools-version: 5.7
 import PackageDescription
 
 let package = Package(
     name: "Xtremepush-iOS-SDK",
-    platforms: [ .iOS(.v8) ],
+    platforms: [
+        .iOS(.v12)
+    ],
     products: [
-        .library(name: "XPush",
-                 targets: ["XPush"])
+        .library(
+            name: "XPush",
+            targets: ["XPush"]
+        ),
+
+        .library(
+            name: "XPushLiveActivities",
+            targets: ["XPushLiveActivities"]
+        ),
+
+        .library(
+            name: "XPushFull",
+            targets: ["XPushFull"]
+        )
     ],
     targets: [
-        .binaryTarget(name: "XPush",
-                      path: "XPush.xcframework")
+        .binaryTarget(
+            name: "XPush",
+            path: "XPush.xcframework"
+        ),
+
+        .target(
+            name: "XPushLiveActivities",
+            dependencies: ["XPush"],
+            path: "Sources/XPushLiveActivities"
+        ),
+
+        .target(
+            name: "XPushFull",
+            dependencies: ["XPush", "XPushLiveActivities"],
+            path: "Sources/XPushFull"
+        )
     ]
 )
+
