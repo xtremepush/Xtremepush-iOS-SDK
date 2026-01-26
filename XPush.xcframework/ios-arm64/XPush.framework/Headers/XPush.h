@@ -553,13 +553,23 @@ NS_ASSUME_NONNULL_BEGIN;
 /**
  *  live actuvities
  */
+
+/**
+ *  Handle Live Activtivity pusht-to-start token
+ */
 + (void)handleLiveActivityToken:(NSString *)token
                            type:(NSString *)type
                      activityId:(NSString *)activityId;
 
+/**
+ *  Handle Live Activtivity update token
+ */
 + (void)handleLiveActivityUpdateToken:(NSString *)token
                            activityId:(NSString *)activityId;
 
+/**
+ *  Ends live activity subscription
+ */
 + (void)endLiveActivitySubscription:(NSString *)activityID;
 
 
