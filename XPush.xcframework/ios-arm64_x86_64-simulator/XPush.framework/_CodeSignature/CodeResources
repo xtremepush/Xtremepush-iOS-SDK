@@ -26,15 +26,15 @@
 		</data>
 		<key>Headers/XPPublicConstants.h</key>
 		<data>
-		R1n7ZTsonEmLHZtbwsaNxGf8G8c=
+		LPdYadN+jPAhnnT/KL+Bxb3Qwk8=
 		</data>
 		<key>Headers/XPush.h</key>
 		<data>
-		78exNO15NHE79YO9jN61wKUl4WM=
+		Fr+9M1zuii4l92K02mE+xJp8+dU=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		PsEupApQsTXlg0gAXDeWxxgHQWk=
+		0uBtvfNEk9hV9OC+d+f7S4HU/2A=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -94,14 +94,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8HYU/zfB5ohFtDHW2Eowq1UJqDFJbidzR8ZxtuKCoJU=
+			2d34xI0I9ynKyA7yj6tF+Yx3P+4tr5ZflBWRqCfRmuE=
 			</data>
 		</dict>
 		<key>Headers/XPush.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZyS3TeaoybO2IbhOaduQrq897w7/xvfu7q+PaA44K38=
+			ObK49RsXMMMJDDqqxJsRLrXrAncT6b04Xcw9uWpJIC0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

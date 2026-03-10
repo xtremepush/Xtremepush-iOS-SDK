@@ -550,9 +550,7 @@ NS_ASSUME_NONNULL_BEGIN;
 + (void)followSportsFeed:(NSString *_Nonnull)sportFeedID withToken:(NSString *_Nonnull)token;
 
 
-/**
- *  live actuvities
- */
+/** LIVE ACTIVITIES */
 
 /**
  *  Handle Live Activtivity pusht-to-start token
@@ -571,6 +569,20 @@ NS_ASSUME_NONNULL_BEGIN;
  *  Ends live activity subscription
  */
 + (void)endLiveActivitySubscription:(NSString *)activityID;
+
+
+/** LOYALTY */
+
+
++ (void)registerLoyaltyTokenHandler:(XPLoyaltyTokenHandler)handler;
+
+//+ (void)setLoyaltyServerUrl:(NSString *)loyaltyUrl;
++ (void)setLoyaltyEndpoint:(NSString *)endpoint;
+
++ (void)openLoyalty;
+
++ (void)getLoyaltyURLWithCompletion:(void (^)(NSURL * _Nullable url, NSError * _Nullable error))completion;
+
 
 
 NS_ASSUME_NONNULL_END;

@@ -77,6 +77,12 @@ typedef void(^XPNativeMessageCallback)(XPMessage* _Nonnull message);
  */
 typedef void(^XPRegisterPushCategoriesCallback)(NSSet< UNNotificationCategory* >* _Nonnull categories);
 
+
+
+typedef void (^XPLoyaltyTokenHandlerCompletion)(NSString * _Nullable jwt, NSError * _Nullable error);
+typedef void (^XPLoyaltyTokenHandler)(XPLoyaltyTokenHandlerCompletion _Nonnull completion);
+
+
 /**
  *
  */
