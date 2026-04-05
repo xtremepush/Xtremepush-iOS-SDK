@@ -576,14 +576,17 @@ NS_ASSUME_NONNULL_BEGIN;
 
 + (void)registerLoyaltyTokenHandler:(XPLoyaltyTokenHandler)handler;
 
-//+ (void)setLoyaltyServerUrl:(NSString *)loyaltyUrl;
 + (void)setLoyaltyEndpoint:(NSString *)endpoint;
 
 + (void)openLoyalty;
++ (void)openLoyaltyWithPath:(NSString * _Nullable)pathExtension
+                     params:(NSDictionary * _Nullable)params;
 
 + (void)getLoyaltyURLWithCompletion:(void (^)(NSURL * _Nullable url, NSError * _Nullable error))completion;
-
-
++ (void)getLoyaltyURLWithPath:(NSString * _Nullable)pathExtension
+                       params:(NSDictionary * _Nullable)params
+                   completion:(void (^)(NSURL * _Nullable url,
+                                       NSError * _Nullable error))completion;
 
 NS_ASSUME_NONNULL_END;
 
