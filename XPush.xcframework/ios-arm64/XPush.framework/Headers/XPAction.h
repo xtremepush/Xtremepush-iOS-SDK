@@ -19,6 +19,8 @@
 @property (nonatomic, readonly, nullable) NSURL *url;
 @property (nonatomic, readonly, nullable) NSString *deeplink;
 @property (nonatomic, readwrite, nullable) NSString* inapp;
+@property (nonatomic, readonly, nullable) NSString* action;
+@property (nonatomic, readonly, nullable) NSString *requestPushPermission;
 
 - (NSDictionary  * _Nonnull ) dictionaryRepresentation;
 

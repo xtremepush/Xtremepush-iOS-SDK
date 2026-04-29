@@ -229,6 +229,12 @@ didReceiveNotificationResponse:(UNNotificationResponse *_Nonnull)response
 + (void)unregisterForRemoteNotifications;
 
 /**
+ * Check if notification permission can be requested
+ * @param callback - completion handler that returns YES if permission can be requested, NO otherwise
+ */
++ (void)canRequestNotificationPermission:(void(^)(BOOL canRequest))callback;
+
+/**
  * Customise foreground notification behaviours
  */
 + (void)registerForegroundNotificationOptions:(XPForegroundNotificationOptions)options;
