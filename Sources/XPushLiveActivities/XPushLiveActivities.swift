@@ -8,10 +8,6 @@ import ActivityKit
 @available(iOS 13.0, *)
 public enum XPushLiveActivities {
 
-    public static func unsubscribeFromLiveActivity(activityID: String) {
-        XPush.endLiveActivitySubscription(activityID)
-    }
-
     fileprivate static func _hexString(_ data: Data) -> String {
         data.map { String(format: "%02x", $0) }.joined()
     }
@@ -75,9 +71,30 @@ public extension XPushLiveActivities {
         func ensureActivityMonitorTaskExists(typeKey: ObjectIdentifier, start: () -> Task<Void, Never>) {
             if activityMonitorTasks[typeKey] == nil { activityMonitorTasks[typeKey] = start() }
         }
+        
+        func unregister(activityID: String) {
+            for typeKey in Array(registeredActivityIDsByType.keys) {
+                guard var ids = registeredActivityIDsByType[typeKey] else {
+                    continue
+                }
+                ids.remove(activityID)
+                if ids.isEmpty {
+                    registeredActivityIDsByType.removeValue(forKey: typeKey)
+                } else {
+                    registeredActivityIDsByType[typeKey] = ids
+                }
+            }
+        }
     }
 
     static let state = State()
+    
+    static func unsubscribeFromLiveActivity(activityID: String) {
+        Task(priority: .background) {
+            await state.unregister(activityID: activityID)
+            XPush.endLiveActivitySubscription(activityID)
+        }
+    }
 
     @available(iOS 16.2, *)
     static func registerPushToStartLiveActivity<A: XPushActivityAttributes>(
@@ -114,15 +131,18 @@ public extension XPushLiveActivities {
 
             for await tokenData in Activity<A>.pushToStartTokenUpdates {
                 let tokenString = XPushLiveActivities._hexString(tokenData)
-
-                await state.setLatestPushToStartToken(tokenString, for: typeKey)
-
+                await state.setLatestPushToStartToken(
+                    tokenString,
+                    for: typeKey
+                )
                 let idsToNotify = await state.idsToNotify(for: typeKey)
                 let name = await state.name(for: typeKey)
-                guard !name.isEmpty else { continue }
-
                 for id in idsToNotify {
-                    XPush.handleLiveActivityToken(tokenString, type: name, activityId: id)
+                    XPush.handleLiveActivityToken(
+                        tokenString,
+                        type: name,
+                        activityId: id
+                    )
                 }
             }
         }
@@ -136,7 +156,6 @@ public extension XPushLiveActivities {
             for activity in Activity<A>.activities {
                 _attachUpdateTokenListenerIfNeeded(activity: activity)
             }
-
             for await activity in Activity<A>.activityUpdates {
                 _attachUpdateTokenListenerIfNeeded(activity: activity)
             }
@@ -155,7 +174,6 @@ public extension XPushLiveActivities {
 
             let task = Task(priority: .background) {
                 let backendID = activity.attributes.activityID
-
                 for await tokenData in activity.pushTokenUpdates {
                     let tokenString = XPushLiveActivities._hexString(tokenData)
                     XPush.handleLiveActivityUpdateToken(tokenString, activityId: backendID)
@@ -163,9 +181,10 @@ public extension XPushLiveActivities {
 
                 await state.setUpdateListenerTask(nil, for: activityKey)
             }
-
+            
             await state.setUpdateListenerTask(task, for: activityKey)
         }
     }
 }
 #endif
+
