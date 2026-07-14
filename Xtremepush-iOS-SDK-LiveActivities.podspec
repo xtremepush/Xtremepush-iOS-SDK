@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
   s.name = "Xtremepush-iOS-SDK-LiveActivities"
-  s.version = "6.1.6"
+  s.version = "6.1.7"
   s.summary = "Xtremepush Live Activities helper module"
   s.license = { "type" => "Commercial", "file" => "LICENSE" }
   s.authors = { "Xtremepush" => "info@xtremepush.com" }
   s.homepage = "https://github.com/xtremepush/Xtremepush-iOS-SDK"
   s.description = "Swift-only helper APIs for Live Activities token management."
-  s.source = { :git => "https://github.com/xtremepush/Xtremepush-iOS-SDK.git", :tag => "6.1.6" }
+  s.source = { :git => "https://github.com/xtremepush/Xtremepush-iOS-SDK.git", :tag => "6.1.7" }
 
   s.ios.deployment_target = "15.1"
   s.swift_version = "5.7"
@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   s.module_name = "XPushLiveActivities"
   s.source_files = "Sources/XPushLiveActivities/**/*.swift"
 
-  s.dependency "Xtremepush-iOS-SDK", "6.1.6"
+  s.dependency "Xtremepush-iOS-SDK", "6.1.7"
   s.weak_frameworks = ["ActivityKit"]
 end

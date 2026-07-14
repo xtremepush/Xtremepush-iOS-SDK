@@ -362,9 +362,21 @@ didReceiveNotificationResponse:(UNNotificationResponse *_Nonnull)response
 + (void)forceOpenInbox;
 
 /**
- * Get current inbox badge
+ * Returns cached inbox badge value
  */
 + (NSInteger)getInboxBadge;
+
+/**
+ * Retrieves the latest inbox badge count and updates the cached value
+ */
++ (void)retrieveInboxBadge;
+
+/**
+ * Retrieves the latest inbox badge count, updates the cache, and returns the updated cached value.
+ */
+
++ (void)retrieveInboxBadgeWithCompletion:(nullable void(^)(NSInteger badge, NSError * _Nullable error))completion;
+
 
 + (void) registerInboxChangeCallback:(void(^)(NSInteger)) callback;
 
