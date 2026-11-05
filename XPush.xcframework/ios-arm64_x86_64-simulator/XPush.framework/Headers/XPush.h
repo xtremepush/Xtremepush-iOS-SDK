@@ -58,6 +58,24 @@
 + (void)setInAppMessageEnabled:(BOOL)enabled;
 
 /**
+ Enables forwarding eligible URL actions to the application's
+ Universal Link handler.
+
+ Disabled by default to preserve existing URL-opening behaviour.
+ */
++ (void)setOpenURLsAsUniversalLinksEnabled:(BOOL)enabled;
+
+/**
+ Configures the domains eligible for in-app Universal Link handling.
+
+ Pass hostnames only, without a scheme or URL path.
+ Example: @[@"example.com", @"links.example.com"]
+
+ An empty array disables internal URL forwarding.
+ */
++ (void)setUniversalLinkDomains:(NSArray<NSString *> *)domains;
+
+/**
 * Turn on to make XPush not register for push notification and request permissions from user
 */
 + (void)enableManualPushRegistration: (BOOL) enabled;
